@@ -1,9 +1,6 @@
-import GridIcon from "../../shared/icons/Group23.svg?react";
-import ListIcon from "../../shared/icons/Group 13.svg?react";
+import GridIcon from "@/shared/icons/Group23.svg?react";
+import ListIcon from "@/shared/icons/Group13.svg?react";
 
-/**
- * Grid <-> rows switch. Controlled: parent owns `view`, this reports changes.
- */
 export default function ViewToggle({ view, onChange }) {
   return (
     <div className="view-toggle">

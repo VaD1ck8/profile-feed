@@ -1,17 +1,14 @@
-import { useFeed } from "./hooks/useFeed.js";
-import Profile from "./features/profile/Profile.jsx";
-import ViewToggle from "./features/view/ViewToggle.jsx";
-import DateRangeFilter from "./features/filter/DateRangeFilter.jsx";
-import PostGrid from "./features/feed/PostGrid.jsx";
-import EmptyState from "./features/feed/EmptyState.jsx";
-import LoadMore from "./features/feed/LoadMore.jsx";
-import IconLeft from "./shared/icons/Vector 1.svg?react";
-import IconAvatar from "./shared/icons/Group 1.svg?react";
-import IconBlob from "./shared/icons/Vector 2.svg?react";
-/**
- * Composition root. Owns no state itself — useFeed is the single source
- * of truth; App just wires data down and callbacks up.
- */
+import { useFeed } from "@/hooks/useFeed.js";
+import Profile from "@/features/profile/Profile.jsx";
+import ViewToggle from "@/features/view/ViewToggle.jsx";
+import DateRangeFilter from "@/features/filter/DateRangeFilter.jsx";
+import PostGrid from "@/features/feed/PostGrid.jsx";
+import EmptyState from "@/shared/ui/EmptyState.jsx";
+import LoadMore from "@/shared/ui/LoadMore.jsx";
+import IconLeft from "@/shared/icons/Vector1.svg?react";
+import IconAvatar from "@/shared/icons/Group1.svg?react";
+import IconBlob from "@/shared/icons/Vector2.svg?react";
+
 export default function App() {
   const { view, setView, setRange, slice, loadMore, hasMore, isEmpty } =
     useFeed();

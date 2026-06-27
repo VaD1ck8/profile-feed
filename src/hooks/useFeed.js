@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { POSTS } from "../data/posts.js";
-import { filterByDate } from "../lib/filterByDate.js";
+import { POSTS } from "@/data/mockPosts.js";
+import { filterByDate } from "@/lib/filterByDate.js";
 
 const PAGE_SIZE = 8;
 const STORAGE_KEY = "feed-view";

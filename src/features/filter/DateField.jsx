@@ -1,14 +1,9 @@
 import { useRef, useState } from "react";
 import Popover from "@mui/material/Popover";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
-import { formatFieldDate } from "../../lib/date.js";
-import { CalendarIcon } from "../../shared/icons/index.jsx";
+import { formatFieldDate } from "@/lib/date.js";
+import { CalendarIcon } from "@/shared/icons/index.jsx";
 
-/**
- * One pill-shaped date field. Renders our own input (to match Figma) and
- * opens a free MUI <DateCalendar> in a popover. `minDate`/`maxDate` keep the
- * range valid; the clear (x) button resets this bound.
- */
 export default function DateField({
   role,
   label,

@@ -1,10 +1,6 @@
-import { formatCardDate } from "../../lib/date.js";
-import { HeartIcon, CommentIcon, Metric } from "../../shared/icons/index.jsx";
+import { formatCardDate } from "@/lib/date.js";
+import { HeartIcon, CommentIcon, Metric } from "@/shared/icons/index.jsx";
 
-/**
- * A single post card. The grid and rows views have genuinely different
- * DOM (two columns vs a 3-column body), so each variant is its own layout.
- */
 export default function PostCard({ post, variant }) {
   const date = formatCardDate(post.date);
   const upload = formatCardDate(post.uploadDate);
@@ -37,7 +33,6 @@ export default function PostCard({ post, variant }) {
     );
   }
 
-  // grid
   return (
     <article className="card">
       {media}
