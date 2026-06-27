@@ -1,0 +1,345 @@
+/* ============================================================
+   components.css — profile, filter, view toggle, cards, buttons
+   ============================================================ */
+
+/* ---------- Profile header block ---------- */
+.profile__top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.profile__name {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-xs);
+  color: var(--color-accent);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+}
+
+.profile__stats {
+  display: flex;
+  gap: var(--space-5);
+  margin-top: var(--space-3);
+  font-size: var(--fs-sm);
+  color: #000000;
+  flex-wrap: wrap;
+}
+
+.profile__stats strong {
+  color: var(--color-text);
+}
+
+/* ---------- Date filter ---------- */
+.date-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.date-filter__label {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+.date-filter__sep {
+  color: var(--color-text-muted);
+}
+
+.date-field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  width: 162px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  background: var(--color-surface);
+  padding: 0 2px 0 var(--space-3);
+}
+
+.date-field:focus-within {
+  border-color: var(--color-accent);
+}
+
+.date-field__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--fs-xs);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.date-field__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.date-field__btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-pill);
+  padding: 0;
+  position: relative;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.date-field__btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* thin separators before each icon, as in the design */
+.date-field__btn::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.date-field__btn:hover {
+  background: var(--color-fill);
+}
+
+/* ---------- View toggle ---------- */
+.view-toggle {
+  display: inline-flex;
+  gap: var(--space-3);
+}
+
+/* Inline SVG icons coloured via currentColor (no mask hack needed). */
+.view-toggle__btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background-color: transparent;
+  color: var(--color-muted-line);
+  border-radius: var(--radius-xs);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.view-toggle__btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.view-toggle__btn.is-active {
+  color: var(--color-accent);
+}
+
+/* ---------- Posts: grid ---------- */
+.posts {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.posts--grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4) var(--space-2);
+}
+
+.posts--rows {
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+/* ---------- Card: grid variant ---------- */
+.card {
+  background: var(--color-surface);
+}
+
+.posts--grid .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.posts--grid .card__media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--color-fill);
+  overflow: hidden;
+}
+
+.posts--grid .card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.posts--grid .card__body {
+  padding: var(--space-3);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-1) var(--space-2);
+  align-items: center;
+}
+
+/* ---------- Card: rows variant ---------- */
+.posts--rows .card {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.posts--rows .card__media {
+  background: var(--color-fill);
+  overflow: hidden;
+}
+
+.posts--rows .card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.posts--rows .card__body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-3) var(--space-4);
+}
+
+/* ---------- Card content atoms (shared) ---------- */
+.card__label {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+.card__date {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+.card__title {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+
+.card__upload {
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+.posts--rows .card__metrics {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.posts--grid .card__metrics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.metric {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+.metric svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Empty state ---------- */
+.posts__empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-8) 0;
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Load more ---------- */
+.load-more {
+  height: 28px;
+  padding: 0 var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.04em;
+}
+
+.load-more:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ============================================================
+   Responsive card layouts
+   ============================================================ */
+@media (max-width: 900px) {
+  .posts--grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .posts--grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .date-field {
+    width: 140px;
+  }
+
+  /* rows collapse: stack the three metric columns */
+  .posts--rows .card__body {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .posts--grid {
+    grid-template-columns: 1fr;
+  }
+}
